@@ -1,0 +1,63 @@
+#info-container {
+    width: 100%;
+    height: 100%;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    color: black;
+}
+
+#info-container div {
+    background-color: beige;
+}
+
+#info-container div p {
+    padding-left: 10px;
+}
+
+#nom {
+    width: 100%;
+    height: 20%;
+}
+
+#score {
+    width: 100%;
+    height: 20%;
+}
+
+#letter-counter {
+    width: 100%;
+    height: 25%;
+}
+
+#letter-counter div {
+    height: 35px;
+}
+
+#chrono {
+    width: 100%;
+    height: 20%;
+}
+
+.type {
+    background-image: url("../../assets/images/light-wood.jpg");
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black,
+                 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
+}
+
+.infos {
+    margin-top: 0;
+    text-align: center;
+    vertical-align: middle;
+    color: black;
+    font-size: 150%;
+}
+
+h2 {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    vertical-align: middle;
+}

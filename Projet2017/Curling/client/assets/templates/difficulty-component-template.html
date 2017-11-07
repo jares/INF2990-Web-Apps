@@ -1,0 +1,15 @@
+<div class="box">
+  <div class="content">
+    <form (ngSubmit)="startGame()" #userForm="ngForm" class="formColor">
+      <div class="difficulty">
+        <label for="difficulty">Veuillez choisir une difficulté pour le AI:</label>
+        <select class="form-control" id="difficulty" required [(ngModel)]="choice" name="difficulty" oninvalid="alert('Veuillez choisir une difficulté.')"
+          (keyup.enter)="startGame"> 
+    <option value="normal">Normal</option>
+    <option value="hard">Difficile</option>
+  </select>
+        <button type="submit" class="myButton">Jouer </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,128 @@
+<div class="hud noselect">
+    <div id="player">
+        <div>
+            {{username}}
+        </div>
+        <ul>
+            <li class="stonesLeft" *ngFor="let i of spritesPlayer">
+                <img class="sprite noselect" src="../../assets/images/redCurlingStone.png">
+            </li>
+            <li class="stonesLeft" *ngIf="!yellowHasHammer">
+                <img class="sprite noselect" src="../../assets/images/red_hammer.png">
+            </li>
+        </ul>
+    </div>
+    <div id="match">
+        <div id="score"> {{scoreUser}}-{{scoreAI}}</div>
+        <div id="set">
+            <div class="circle" [ngClass]="{'green': isFirstSet}"></div>
+            <div class="circle" [ngClass]="{'green': isSecondSet}"></div>
+            <div class="circle" [ngClass]="{'green': isThirdSet}"></div>
+        </div>
+    </div>
+    <div id="CPU">
+        {{AI}}
+        <ul>
+            <li class="stonesLeft" *ngIf="yellowHasHammer">
+                <img class="sprite noselect" src="../../assets/images/yellow_hammer.png">
+            </li>
+            <li class="stonesLeft" *ngFor="let i of spritesAI">
+                <img class="sprite" src="../../assets/images/yellowCurlingStone.png">
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="messageContainer">
+    <div class="colorMessage" *ngIf="isEndGame">
+        <span>La partie est terminée.</span>
+        <span><button class="myButton" (click)="init(); restart();">Rejouer</button>
+        <button class="myButton" (click)="newDifficulty();">Changer de difficulté</button></span>
+    </div>
+</div>
+
+<div class="down noselect" *ngIf="isNewSet && isEndTurn && !isSecondSet && !isGameOver && !isCelebrating">
+    <div class="message">Vous jouez contre un {{AI}}.</div>
+    <button class="myButton" (click)="startGame()">Commencer</button>
+</div>
+
+<div class="down noselect" *ngIf="isNewSet && isEndTurn && isSecondSet && !isEndGame && !isCelebrating">
+    <div class="message">Fin de manche. Cliquez ou appuyez sur espace. </div>
+    <button class="myButton" (click)="continue()">Continuer</button>
+</div>
+
+<div class="down noselect" *ngIf="isEndTurn && !isNewSet && !isCelebrating">
+    <div class="message">Fin de tour. Cliquez ou appuyez sur espace.</div>
+    <div>
+        <button class="myButton" (click)="endTurn()">Continuer</button>
+    </div>
+</div>
+
+<div class="noselect buttons" *ngIf="!isEndTurn && !isCelebrating && !isAskingForHelp">
+    <button class="transparentButton" *ngIf="isPlayingMusic" (click)="toggleMusic()"><img src="../../assets/images/music.png" height="35"/></button>
+    <button class="transparentButton" *ngIf="!isPlayingMusic" (click)="toggleMusic()"><img src="../../assets/images/mute.png" height="35"/></button>
+    <button class="transparentButton questionMark" (click)="toggleHelp()"><img src="../../assets/images/question.png" height="35"/></button>
+</div>
+
+<div class="help" *ngIf="isAskingForHelp">
+    <!--<div class="message">-->
+    <b>Contrôles: </b>
+    <li>T pour passer en vue orthogonale</li>
+    <li>R pour changer le sens de la rotation</li>
+    <b>Cheat codes: </b>
+    <li>S pour arrêter toutes les pierres en mouvement</li>
+    <li>P pour forcer la fin de la manche</li>
+    <li>C pour forcer la fin de partie</li>
+    <button class=" myButton" (click)="toggleHelp()">Fermer</button>
+    <!--</div>-->
+</div>
+
+<div class="barPosition" *ngIf="isSetThrow && !isAskingForHelp">
+    <div class="progress vertical">
+        <div class="progress-bar progress-bar-success colorProgress" role="progressbar" [style.width]="percent">
+        </div>
+    </div>
+</div>
+
+<div class="rotationButton" *ngIf="isSetThrow">
+    <button (click)="emitToggleRotation()" *ngIf="!isRotating">Activer Rotation</button>
+    <button (click)="emitToggleRotation()" *ngIf="isRotating">Désactiver Rotation</button>
+    <button (click)="emitChangeRot()" *ngIf="isClockwise">Sens horaire</button>
+    <button (click)="emitChangeRot()" *ngIf="!isClockwise">Sens anti-horaire</button>
+</div>
+<div class="congratulationContainer" *ngIf="isCelebrating && !isEndGame">
+    <div class="congratulationMessage">
+        <img class="sprite" src="../../assets/images/joe.png">
+        <img class="sprite" src="../../assets/images/vu.png">
+        <img class="sprite" src="../../assets/images/alain.png"> Félicitations, vous avez gagné la partie!
+        <img class="sprite" src="../../assets/images/alex.png">
+        <img class="sprite" src="../../assets/images/jul.png">
+        <img class="sprite" src="../../assets/images/ktt.png">
+    </div>
+</div>
+
+<div class="leaderBoard" *ngIf="isEndGame">
+    <div>
+        <h1>LeaderBoard</h1>
+        <div>
+            <h3>Facile</h3>
+            <ul class="top3">
+                <li *ngFor="let player of leaderBoardNormal; let i = index">
+                    <span class="lb-rank">{{i + 1}}</span>
+                    <span>{{player.name}}</span>
+                    <span class="lb-score">{{player.userScore}} - {{player.AIscore}}</span>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h3>Difficile</h3>
+            <ul class="top3">
+                <li *ngFor="let player of leaderBoardHard; let i = index">
+                    <span class="lb-rank">{{i + 1}}</span>
+                    <span>{{player.name}}</span>
+                    <span class="lb-score">{{player.userScore}} - {{player.AIscore}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

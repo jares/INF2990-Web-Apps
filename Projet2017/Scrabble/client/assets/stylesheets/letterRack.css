@@ -1,0 +1,22 @@
+/*#top {
+    height: 10%;
+}*/
+
+#letter-rack-container {
+    background-image: url("../../assets/images/light-wood.jpg");
+    width: 400px;
+    height: 65px;
+    margin-left: 20%;
+    border-radius: 10px;
+}
+
+#letter-rack-container table {
+    margin: auto;
+    border-spacing: 10px;
+    border-collapse: separate;
+}
+
+
+.focus {
+    background-color: cornflowerblue;
+}

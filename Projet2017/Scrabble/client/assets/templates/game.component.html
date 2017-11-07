@@ -1,0 +1,110 @@
+<div id="container">
+
+    <div id="game-elements">
+
+        <div id="scrabble-board">
+            <!--<div id="board-container">-->
+            <table>
+                <tbody>
+                    <tr class="index">
+                        <td></td>
+                        <td *ngFor="let data of indexes">{{data.num}}</td>
+                    </tr>
+                    <tr *ngFor="let row of board; let i = index">
+                        <td class="index">{{indexes[i].letter}}</td>
+                        <td *ngFor="let col of row; let j = index" class="{{col.class}} scrabble-cell">
+                            <a class="tile" *ngIf="board[i][j].tile !== null">
+                                    {{board[i][j].tile.letter}}<sub>{{board[i][j].tile.value}}</sub>
+                                </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--</div>-->
+        </div>
+         <div id="letter-rack">
+
+            <!--<div id="top"></div>-->
+            <div id="letter-rack-container" tabindex="0" (blur)="changeFocus(true)" (keypress)="eventHandler($event)" (keydown)="move($event)">
+                <table>
+                    <td *ngFor="let cell of rack; let i = index" class="rack-cell" [ngClass]="{'focus' : cell.focus}">
+                        <a class="tile" id="{{'tile' + i}}">
+                            <div *ngIf="cell.tile.letter !== '*'">{{cell.tile.letter}}<sub>{{cell.tile.value}}</sub></div>
+                        </a>
+                    </td>
+                </table>
+            </div>
+            <!--</div>-->
+            <div *ngIf="gameOver">
+                <button id="back-button" (click)="returnToLogin()">Retour à la page de connexion</button>
+            </div>
+        </div>   
+    </div>
+
+    <div id="right-panel">
+
+        <div id="info-panel">
+
+            <div id="info-container">
+                <div id="nom">
+                    <p class="type">Nom :</p>
+                    <p class="infos">{{username}}</p>
+                </div>
+                <div id="score">
+                    <p class="type">Score: </p>
+                    <p class="infos">{{score}}</p>
+                </div>
+                <div id="letter-counter">
+                    <p class="type">Nombre de lettres sur le chevalet: </p>
+                    <div>
+                        <p class="infos" *ngIf="rack.length < 7">{{rack.length}}</p>
+                    </div>
+                    <p class="type">Nombre de lettres dans la reserve :</p>
+                    <p class="infos">{{numLettersLeft}}</p>
+                </div>
+                <div id="chrono" *ngIf="!gameOver">
+                    <p class="type">Temps restant: </p>
+                    <p class="infos">{{timer.time}}</p>
+                </div>
+
+                <div id="win-message" *ngIf="gameOver">
+                    <p class="type">Le joueur gagnant est</p>
+                    <div>
+                        <p class="infos">{{winner}}</p>
+                    </div>
+                    <p class="type">avec</p>
+                    <div>
+                        <p class="infos">{{winnerScore}} points</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="chat-box">
+
+            <div id="chat-container">
+                <div id="chat-title">
+                    <p>Boîte de communication</p>
+                </div>
+
+                <div id="chat-log">
+                    <ul>
+                        <li *ngFor="let line of log" class="{{line.class}}">{{line.data}}</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <form name="message">
+                        <div id="inputs">
+                            <input id="msg-input" autofocus name="usermsg" type="text" autocomplete="off" [(ngModel)]="userMsg" size="63" (blur)="changeFocus(false)">
+                            <button name="submitmsg" type="submit" (click)="submit()">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

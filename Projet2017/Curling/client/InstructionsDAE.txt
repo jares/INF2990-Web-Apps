@@ -1,0 +1,21 @@
+Les fichiers sont disponibles dans l'archive postInstallRessources,
+
+1) Dans le fichier node_modules/@types/three/index.d.ts , ajoutez la ligne suivante avant le 'declare namespace THREE':
+
+/// <reference path="three-colladaLoader.d.ts" />
+
+2) Copier-coller le fichier "three-colladaLoader.d.ts" dans le même dossier (dans node_modules/@types/three/). 
+   Gardez le nom de three-colladaLoader.d.ts
+	
+3) Dans le fichier 'index.html', ajoutez le lien vers la librairie js : 
+   <script src="node_modules/three/examples/js/loaders/ColladaLoader2.js"></script>
+   
+   Ceci doit être inclus APRÈS three.js (car les extensions doivent être chargées après)
+   
+Vous devriez être maintenant en mesure de charger des fichiers '.dae' !
+
+N'hésitez pas si vous avez des questions.
+
+N.B : 	Puisque les fichiers iront dans le dossier "node_modules/@types/three/" et que ces répertoires sont
+		ignorés, il faut ajouter à chaque fois ces fichiers quand vous clonez vos fichiers.
+		Peut-être voudriez-vous faire un script "postInstall" qui copie-colle les fichiers dans ce dossier.

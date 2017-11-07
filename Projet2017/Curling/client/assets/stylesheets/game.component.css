@@ -1,0 +1,16 @@
+my-dashboard{
+    z-index: 100;
+    position: absolute;
+    color: black;
+    width: 99%;
+    height:99%;
+}
+
+#container{
+    width:100%;
+    position: relative;
+}
+
+.noCursor {
+    cursor:default;
+}

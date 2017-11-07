@@ -1,0 +1,22 @@
+<div class="box">
+  <div class="content">
+    <form (ngSubmit)="addUser()" #userForm="ngForm" class="formColor">
+      <div class="name">
+        <p class="head">Scrabble</p>
+        <span>
+        <label for="name">Nom d'utilisateur : </label>
+        <input type="text" required [(ngModel)]="username" name="name" oninvalid="alert('Veuillez entrer un nom d\'utilisateur.')"
+          (keyup.enter)="addUser()">
+        </span>
+        <span>
+        <label for="numberPlayers">Nombre de joueurs : </label>
+        <select class="form-control" id="numberPlayers" required [(ngModel)]="gameSize" name="numberPlayers" oninvalid="alert('Veuillez choisir un nombre de joueurs.')"
+          (keyup.enter)="addUser()"> 
+    <option *ngFor="let player of players" [value]="player">{{player}}</option>
+  </select>
+        </span>
+      </div>
+      <button type="submit" class="myButton">Jouer </button>
+    </form>
+  </div>
+</div>

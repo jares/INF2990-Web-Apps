@@ -1,0 +1,51 @@
+/*#board-container {
+    width: 780px;
+    height: 100%;
+}*/
+
+table {
+    border-collapse: collapse;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+td {
+    width: 40px;
+    height: 40px;
+}
+
+.scrabble-cell {
+    border: 3px solid #8c6026;
+    background-image: url(assets/images/Background.png);
+    text-align: center;
+}
+
+.index, tr.index td {
+    border: 0;
+    text-align: center;
+    background: transparent;
+}
+
+.word-2x {
+    background-image: url(assets/images/wordx2.png);
+}
+
+.word-3x {
+    background-image: url(assets/images/wordx3.png);    
+}
+
+.letter-2x {
+    background-image: url(assets/images/letterx2.png);
+}
+
+.letter-3x {
+    background-image: url(assets/images/letterx3.png);
+}
+
+.star {
+    background-image: url(assets/images/star.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-color: lightpink;
+}

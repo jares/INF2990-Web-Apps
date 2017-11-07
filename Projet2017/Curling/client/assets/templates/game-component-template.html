@@ -1,0 +1,10 @@
+<div class = "noCursor" [style.cursor]="cursor">
+    <my-dashboard [isNewSet]="isNewSet" [nStonesLeftPlayer]="indexCurrentRedStone" 
+        [nStonesLeftAI]="indexCurrentYellowStone" [isEndTurn]="isEndTurn" [nSetPlayed]="nSetDone"
+        [isSetThrow] = "isSetThrow"  [velocity]= "speed" [isClockwise]= "isClockwise" [isRotating]="isRotating"
+        [maxVelocity]= "maxSpeed" [yellowHasHammer]= "yellowHasHammer"
+        (beginGame)="startGame()" (continueGame)="startSet()" (restartGame)="startNewGame()"
+        (changeDifficulty)="back()" (celebration)="startCelebration()" (endOfTurn)="nextTurn()"
+        (changeRotation) = "changeRotation()" (toggleRotation) = "toggleRotation()" (playMusic) = "toggleMusic()">
+    </my-dashboard>
+</div>

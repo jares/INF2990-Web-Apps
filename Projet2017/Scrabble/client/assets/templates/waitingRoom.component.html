@@ -1,0 +1,19 @@
+<div class="box">
+    <div class="content">
+
+        <div class="theButtons">
+            <p class="joueur">Joueur "{{username}}" en attente d'une partie de {{gameSize}} joueurs.</p>
+            <p class="waiting"> Il manque {{num}} autre(s) joueur(s) pour débuter la partie.</p>
+            <button (click)="disconnect()" class="disconnectButton">Déconnexion</button>
+            <!--<div>-->
+                <button (click)="stopMusic()" *ngIf="isPlaying" class="soundButton">
+                    <img src="../../assets/images/sound.png" height = "35">
+                </button>
+                <button (click)="playMusic()" *ngIf="!isPlaying" class="soundButton">
+                    <img src="../../assets/images/mute.png" height = "35">
+                </button>
+            <!--</div>-->
+        </div>
+
+    </div>
+</div>

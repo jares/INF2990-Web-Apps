@@ -1,0 +1,84 @@
+<div class="box">
+  <div class="content">
+    <div class="container">
+      <div class="infos doorBorders">
+        <div class="forms">
+          <form (ngSubmit)="getSudoku()" #userForm="ngForm">
+            <label for="difficulty">Difficulté : </label>
+            <select class="form-control" id="difficulty" required [(ngModel)]="desiredDifficulty" name="difficulty" oninvalid="alert('Une difficulté est nécessaire.')"> 
+            <option *ngFor="let diff of difficulties" [value]="diff">{{diff}}</option>
+          </select>
+            <button type="submit" [disabled]="isWaiting">Générer</button>
+          </form>
+          <form class="checkboxes">
+            <input type="checkbox" name="helpCheckbox" [(ngModel)]="help">Indication d'erreur
+            <br>
+            <input type="checkbox" name="timerCheckbox" [(ngModel)]="showTime">Afficher le chronomètre
+          </form>
+        </div>
+        <div class="timer">
+          <span *ngIf="showTime">{{timer.time}}</span>
+        </div>
+        <div class="resetButton">
+          <button (click)="reset()">Réinitialiser</button>
+        </div>
+        <div class="eventPanel">
+          <div class="events-title">
+            <p class="fontFormat">Événements</p>
+          </div>
+          <div class="log">
+            <span *ngFor="let event of infoBoard">{{event.date | date:'medium'}} : {{event.type}} : {{event.description}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="board">
+        <div class="sudoku">
+          <table>
+            <tr *ngFor="let row of modifiedSudoku; let i = index" attr.id="{{i}}">
+              <td *ngFor="let col of modifiedSudoku; let j = index" attr.id="{{i * 10 + j}}">
+                <div *ngIf="originalSudoku[i][j] === 0" [ngClass]="{'invalid': row[j].isValid === false && help === true}">
+                  <input type="text" class="variable" id="{{'cell' + i + j}}" maxlength="1" (keydown)="onKey($event,i,j)">
+                </div>
+                <div *ngIf="originalSudoku[i][j] !== 0">
+                  <input type="text" class="constant" id="{{'cell' + i + j}}" value="{{originalSudoku[i][j]}}" readonly maxlength="1" (keydown)="move($event,i,j)">
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="placeRight">
+        <div class="doorBorders" *ngIf="isCompleted">
+          <div class="congrats">
+            <p>Félicitations! <br> Vous avez completé un sudoku {{desiredDifficulty}} en {{timer.time}}</p>
+          </div>
+          <div class="leaderBoard" *ngIf="leaderboardsReceived && isFastestTime">
+            <div class="leaderBoard-log">
+              <p class="title fontFormat">LeaderBoard</p>
+              <div>
+                <div class="events-title fontFormat">Facile</div>
+                <ul class="players">
+                  <li *ngFor="let player of leaderBoardEasy; let i = index">
+                    <span class="lb-rank">{{i + 1}}</span>
+                    <span class="lb-name">{{player.name}}</span>
+                    <span class="lb-time">{{player.time}}</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <div class="events-title fontFormat">Difficile</div>
+                <ul class="players">
+                  <li *ngFor="let player of leaderBoardHard; let i = index">
+                    <span class="lb-rank">{{i + 1}}</span>
+                    <span class="lb-name">{{player.name}}</span>
+                    <span class="lb-time">{{player.time}}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

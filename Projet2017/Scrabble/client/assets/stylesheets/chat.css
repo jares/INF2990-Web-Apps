@@ -1,0 +1,126 @@
+#chat-container {
+    background-image: url("../../assets/images/light-wood.jpg");
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+#chat-title {
+    background-image: url("../../assets/images/light-wood.jpg");
+    width: 100%;
+    height: 10%;
+}
+
+#chat-title p {
+    display: table-cell;
+    padding-top: 5px;
+    padding-left: 10px; 
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black,
+                 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
+}
+
+#chat-log {
+    /*background-image: url("../../assets/images/Background.png");*/
+    background-color: beige;
+    width: 100%;
+    height: 18vw;
+    margin: auto;
+    resize: none;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding-bottom: 25px;
+}
+
+/*https://codepen.io/GhostRider/pen/GHaFw pour le css du scrollbar*/
+#chat-log::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#chat-log::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#chat-log::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+#chat-log ul, #chat-log ul li {
+    margin: 0;
+    padding: 0;
+    padding-left: 4px;
+}
+
+#chat-log ul {
+    list-style: none;
+}
+
+form {
+    height: 35px;
+    padding-top: 8px;
+}
+
+input {
+    clear: both;
+}
+
+#inputs {
+    margin-right: 2px;
+    text-align: right;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
+  width: 70%;
+  height: 5px;
+}
+
+input[type="text"]:focus,
+input[type="text"].focus {
+  border: solid 1px #707070;
+  box-shadow: 0 0 5px 1px #969696;
+}
+
+.command {
+    color: red;
+    font-weight: bold;
+}
+
+button {
+	box-shadow: 3px 4px 0px 0px #1564ad;
+	background:linear-gradient(to bottom, #79bbff 5%, #147487 100%);
+	background-color:#79bbff;
+	border-radius:15px;
+	border:1px solid #337bc4;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:1vw;
+	padding:2.5px 1vw;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528ecc;
+	vertical-align: top;
+    margin: 0vw 1vw 0.5vw;
+}
+
+button:hover {
+	background:linear-gradient(to bottom, #147487 5%, #79bbff 100%);
+	background-color:#147487;
+}
+
+button:active {
+    top:0;
+}

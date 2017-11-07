@@ -1,0 +1,29 @@
+.tile{
+	display:block;
+	float:left;
+	width:36px;
+	height:36px;
+	margin:1px;
+	text-indent:10px;
+	line-height:36px;
+	border: 1px #d6bc83 solid;
+	border-radius: 2px;
+	color:#000;
+	font-family: "NewsGoth Cn BT", Optima-Thin, "MS Gothic";
+	font-size:24px;
+	background-image: -webkit-gradient(
+		linear,
+		right bottom,
+		left top,
+		color-stop(0.5, rgb(222,196,139)),
+		color-stop(0.7, rgb(230,204,147))
+	);
+}
+
+tile:focus {	
+  background: #008000 !important;
+}
+ 
+.tile sub{
+	font-size:10px;
+}

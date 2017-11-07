@@ -1,0 +1,62 @@
+.placeRight {
+  width: 27.8%;
+  float: right;
+  margin-top: 9.5%;
+  padding-bottom: 10%;
+}
+
+.congrats {
+  text-align: center;
+  font-size: 50%;
+  padding-top: 5%
+}
+
+.congrats p {
+  color: black;
+  font-size: 2vw;
+}
+
+.leaderBoard {
+  border-top: 0;
+}
+
+.title, h3 {
+  margin: 0;
+  padding: 0;
+  color: white;
+  text-align: center;
+}
+
+.title {
+  background-color: #EDD797;
+  background: -webkit-linear-gradient(to bottom, rgba(124, 49, 1, 1), rgba(237, 215, 151, 1));
+  background: -o-linear-gradient(to bottom, rgba(124, 49, 1, 1), rgba(237, 215, 151, 1));
+  background: -moz-linear-gradient(to bottom, rgba(124, 49, 1, 1), rgba(237, 215, 151, 1));
+  background: linear-gradient(to bottom, rgba(124, 49, 1, 1), rgba(237, 215, 151, 1));
+  font-size: 3vw;
+}
+
+.players {
+  width: 100%;
+  text-align: center;
+  list-style: none;
+  padding-left: 0;
+  width: 70%;
+  margin: auto;
+}
+
+.players li {
+  line-height: 25px;
+}
+
+.players li span {
+  font-size: 1.5vw;
+}
+
+.lb-rank {
+  float: left;
+}
+
+.lb-time {
+  float: right;
+}
