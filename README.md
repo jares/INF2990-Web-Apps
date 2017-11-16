@@ -2,15 +2,21 @@
 
 2nd Year Software Engineering Project
 
-Collaborators:
+# Collaborators:
+
 Alex Tran - github.com/altraf
+
 Julien Ares - github.com/jares
+
 Kim Thuyen Ton - github.com/ktton
+
 Olivier St-Onge - github.com/olstob
+
 Giuseppe La Barbera - github.com/joe0010
+
 Alexandre Vu - github.com/alvux
 
-Installation :
+# Installation :
     Windows : (entre nous .. windows ... )
         $ npm install --no-cache
     Mac :
@@ -44,18 +50,3 @@ pour les tests :
 pour nettoyer votre repertoire :
     1) aller dans le repertoire client ou server voulu
     2) $ npm run clean 
-
-## Considérations ##
-### Installation de node à la bonne version ###
-Windows: https://nodejs.org/en/download/
-Linux:
-sudo apt-get install nodejs (ou l'équivalent, ex: yum)
-	
-Sur Linux, si la version reste 0.x.x, rouler le script dans installHigherNodeVersion.sh
-
-### Règles Lint ###
-Les règles qui vérifient le TypeScript sont dans le fichier tslint.json 
-Pour ajouter, ou modifier des règles, il faut modifier ce fichier en considérant les règles disponibles sur :
-https://palantir.github.io/tslint/rules/
-https://github.com/buzinas/tslint-eslint-rules
-https://github.com/mgechev/codelyzer (Seulement pour Angular)
